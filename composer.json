@@ -1,0 +1,30 @@
+{
+    "name": "dscheinah/sx-application",
+    "description": "Collection of reusable components for applications using the sx framework.",
+    "type": "library",
+    "license": "GPL-3.0-or-later",
+    "require": {
+        "php": "^7.3",
+        "dscheinah/sx-container": "^1.0",
+        "dscheinah/sx-log": "^1.0",
+        "dscheinah/sx-message": "^1.0",
+        "dscheinah/sx-server": "^1.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.3"
+	},
+    "autoload": {
+        "psr-4": {
+            "Sx\\Application\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Sx\\ApplicationTest\\": "test/"
+        }
+    },
+    "scripts": {
+        "test": "phpunit --colors=always",
+        "test-coverage": "phpunit --colors=always --coverage-clover clover.xml"
+    }
+}
