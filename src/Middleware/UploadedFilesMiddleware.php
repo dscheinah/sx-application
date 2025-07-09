@@ -18,6 +18,9 @@ class UploadedFilesMiddleware implements MiddlewareInterface
 
     private StreamFactoryInterface $streamFactory;
 
+    /**
+     * @var array<mixed>
+     */
     private array $files;
 
     /**
@@ -25,7 +28,7 @@ class UploadedFilesMiddleware implements MiddlewareInterface
      *
      * @param UploadedFileFactoryInterface $uploadedFileFactory
      * @param StreamFactoryInterface $streamFactory
-     * @param array $files
+     * @param array<mixed> $files
      */
     public function __construct(
         UploadedFileFactoryInterface $uploadedFileFactory,

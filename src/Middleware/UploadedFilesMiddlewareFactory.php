@@ -13,16 +13,20 @@ class UploadedFilesMiddlewareFactory implements FactoryInterface
      * Creates the middleware with the required psr message factories and the values from $_FILES.
      *
      * @param Injector $injector
-     * @param array $options
+     * @param array<mixed> $options
      * @param string $class
      *
      * @return UploadedFilesMiddleware
      */
     public function create(Injector $injector, array $options, string $class): UploadedFilesMiddleware
     {
+        $uploadedFileFactory = $injector->get(UploadedFileFactoryInterface::class);
+        assert($uploadedFileFactory instanceof UploadedFileFactoryInterface);
+        $streamFactory = $injector->get(StreamFactoryInterface::class);
+        assert($streamFactory instanceof StreamFactoryInterface);
         return new UploadedFilesMiddleware(
-            $injector->get(UploadedFileFactoryInterface::class),
-            $injector->get(StreamFactoryInterface::class),
+            $uploadedFileFactory,
+            $streamFactory,
             $_FILES,
         );
     }

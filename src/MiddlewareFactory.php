@@ -12,16 +12,18 @@ use Sx\Message\Response\ResponseHelperInterface;
 class MiddlewareFactory implements FactoryInterface
 {
     /**
-     * Creates a new middleware by given class name, providing the response helper.
+     * Creates new middleware by given class name, providing the response helper.
      *
      * @param Injector $injector
-     * @param array    $options
-     * @param string   $class
+     * @param array<mixed> $options
+     * @param class-string<MiddlewareInterface> $class
      *
      * @return MiddlewareInterface
      */
     public function create(Injector $injector, array $options, string $class): MiddlewareInterface
     {
-        return new $class($injector->get(ResponseHelperInterface::class));
+        $responseHelper = $injector->get(ResponseHelperInterface::class);
+        assert($responseHelper instanceof ResponseHelperInterface);
+        return new $class($responseHelper);
     }
 }

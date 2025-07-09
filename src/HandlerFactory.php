@@ -15,8 +15,8 @@ class HandlerFactory implements FactoryInterface
      * Creates a new handler by given class name, providing the response helper.
      *
      * @param Injector $injector
-     * @param array    $options
-     * @param string   $class
+     * @param array<mixed> $options
+     * @param class-string<RequestHandlerInterface> $class
      *
      * @return RequestHandlerInterface
      */
