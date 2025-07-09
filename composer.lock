@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d4e033caeeecc180983c567f97392e5d",
+    "content-hash": "3b0bb3fe89901228f9afc602b511426a",
     "packages": [
         {
             "name": "dscheinah/sx-container",
