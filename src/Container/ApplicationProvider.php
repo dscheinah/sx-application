@@ -5,6 +5,8 @@ use Sx\Application\HandlerFactory;
 use Sx\Application\Middleware\ErrorHandler;
 use Sx\Application\Middleware\ErrorHandlerFactory;
 use Sx\Application\Middleware\NotFoundHandler;
+use Sx\Application\Middleware\UploadedFilesMiddleware;
+use Sx\Application\Middleware\UploadedFilesMiddlewareFactory;
 use Sx\Container\Injector;
 use Sx\Container\ProviderInterface;
 
@@ -22,5 +24,6 @@ class ApplicationProvider implements ProviderInterface
     {
         $injector->set(ErrorHandler::class, ErrorHandlerFactory::class);
         $injector->set(NotFoundHandler::class, HandlerFactory::class);
+        $injector->set(UploadedFilesMiddleware::class, UploadedFilesMiddlewareFactory::class);
     }
 }
