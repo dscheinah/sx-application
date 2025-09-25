@@ -1,13 +1,13 @@
 <?php
 namespace Sx\Application\Middleware;
 
-use Exception;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\RequestHandlerInterface;
 use Sx\Application\MiddlewareAbstract;
 use Sx\Log\LogInterface;
 use Sx\Message\Response\ResponseHelperInterface;
+use Throwable;
 
 /**
  * The error handler to create error responses out of exceptions.
@@ -45,7 +45,7 @@ class ErrorHandler extends MiddlewareAbstract
     {
         try {
             return $handler->handle($request);
-        } catch (Exception $e) {
+        } catch (Throwable $e) {
             $this->logger->log($e->getMessage());
             // Do not output any internal information for production environment.
             return $this->helper->create(500);
